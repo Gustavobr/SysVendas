@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -36,7 +37,7 @@ public class ServicoControllerApi {
 	@RequestMapping(value = "/v1/api/servico/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus
-
+	//
 	public com.mydemo.DTO.Servico getServicoId(@PathVariable Long id) throws Exception {
 		try {
 			if (id != null && !String.valueOf(id).isBlank() == true) {
@@ -50,6 +51,9 @@ public class ServicoControllerApi {
 
 		return null;
 	}
+	
+	
+	@PostMapping(value="/v1/api/servico/add", produces = MediaType.APPLICATION_JSON_VALUE)
 
 	@GetMapping(value = "/v1/api/servico/all", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
